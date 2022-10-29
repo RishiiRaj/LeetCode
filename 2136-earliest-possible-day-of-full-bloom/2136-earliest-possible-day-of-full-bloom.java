@@ -8,12 +8,14 @@ class Solution {
 			temp[i][0] = plantTime[i];
 			temp[i][1] = growTime[i];
 		}
+        // sort according to plant time in descending order
 		Arrays.sort(temp, (a, b) -> b[1] - a[1]);
 		int max = 0;
-		int cum = 0;
+		int plant_time = 0;
+        //keeping track of max time
 		for (int i = 0; i < temp.length; i++) {
-			max = Math.max(max, cum + temp[i][0] + temp[i][1]);
-			cum = cum + temp[i][0];
+			max = Math.max(max, plant_time + temp[i][0] + temp[i][1]);
+			plant_time = plant_time + temp[i][0];
 		}
 		return max;
 	}
